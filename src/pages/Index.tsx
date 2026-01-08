@@ -148,19 +148,19 @@ export default function Index() {
                   Все игры
                 </DropdownMenuItem>
                 <DropdownMenuItem 
-                  onClick={() => setSelectedGame('FS 25')}
+                  onClick={() => navigate('/game/fs25')}
                   className="text-[#ffffff] focus:bg-[#1a2530] focus:text-primary cursor-pointer"
                 >
                   Farming Simulator 25
                 </DropdownMenuItem>
                 <DropdownMenuItem 
-                  onClick={() => setSelectedGame('FS 22')}
+                  onClick={() => navigate('/game/fs22')}
                   className="text-[#ffffff] focus:bg-[#1a2530] focus:text-primary cursor-pointer"
                 >
                   Farming Simulator 22
                 </DropdownMenuItem>
                 <DropdownMenuItem 
-                  onClick={() => setSelectedGame('FS 19')}
+                  onClick={() => navigate('/game/fs19')}
                   className="text-[#ffffff] focus:bg-[#1a2530] focus:text-primary cursor-pointer"
                 >
                   Farming Simulator 19
