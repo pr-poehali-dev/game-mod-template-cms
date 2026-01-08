@@ -65,14 +65,14 @@ export default function UploadMod() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b bg-card">
+      <header className="border-b border-[#1a2530] bg-[#0d151a]">
         <div className="container flex h-16 items-center justify-between px-4 md:px-8">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
             <Icon name="Gamepad2" size={28} className="text-primary" />
-            <h1 className="text-xl font-bold">ModHub</h1>
+            <h1 className="text-xl font-bold text-[#ffffff]">ModHub</h1>
           </div>
           
-          <Button variant="ghost" onClick={() => navigate('/')}>
+          <Button variant="ghost" onClick={() => navigate('/')} className="text-[#ffffff] hover:text-primary hover:bg-[#1a2530]">
             <Icon name="X" size={20} className="mr-2" />
             Отмена
           </Button>

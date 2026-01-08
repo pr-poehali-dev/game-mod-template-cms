@@ -6,6 +6,12 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import Icon from '@/components/ui/icon';
 
 const mockMods = [
@@ -98,6 +104,7 @@ const mockComments = [
 export default function Index() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [headerSearchQuery, setHeaderSearchQuery] = useState('');
   const [selectedGame, setSelectedGame] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -110,27 +117,77 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-8 bg-[#0d151a]">
-          <div className="flex items-center gap-2">
+      <header className="sticky top-0 z-50 w-full border-b border-[#1a2530] bg-[#0d151a] backdrop-blur">
+        <div className="container flex h-16 items-center gap-4 px-4 md:px-8">
+          <div className="flex items-center gap-2 shrink-0">
             <Icon name="Gamepad2" size={28} className="text-primary" />
             <h1 className="text-xl font-bold text-[#ffffff]">ModHub</h1>
           </div>
           
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Каталог</a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Популярное</a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Категории</a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Сообщество</a>
+          <nav className="hidden lg:flex items-center gap-4">
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff] whitespace-nowrap">
+              О проекте
+            </a>
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff] whitespace-nowrap">
+              Новости
+            </a>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-[#ffffff] hover:text-primary hover:bg-[#1a2530]">
+                  <Icon name="Gamepad2" size={16} className="mr-2" />
+                  {selectedGame === 'all' ? 'Все игры' : selectedGame}
+                  <Icon name="ChevronDown" size={16} className="ml-2" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-[#0d151a] border-[#1a2530]">
+                <DropdownMenuItem 
+                  onClick={() => setSelectedGame('all')}
+                  className="text-[#ffffff] focus:bg-[#1a2530] focus:text-primary cursor-pointer"
+                >
+                  Все игры
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setSelectedGame('FS 25')}
+                  className="text-[#ffffff] focus:bg-[#1a2530] focus:text-primary cursor-pointer"
+                >
+                  Farming Simulator 25
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setSelectedGame('FS 22')}
+                  className="text-[#ffffff] focus:bg-[#1a2530] focus:text-primary cursor-pointer"
+                >
+                  Farming Simulator 22
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setSelectedGame('FS 19')}
+                  className="text-[#ffffff] focus:bg-[#1a2530] focus:text-primary cursor-pointer"
+                >
+                  Farming Simulator 19
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon">
-              <Icon name="Bell" size={20} />
-            </Button>
-            <Button onClick={() => navigate('/upload')}>
+          <div className="flex-1 max-w-md hidden md:block">
+            <div className="relative">
+              <Icon name="Search" size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#ffffff]/60" />
+              <Input
+                placeholder="Поиск модов..."
+                className="pl-10 bg-[#1a2530] border-[#1a2530] text-[#ffffff] placeholder:text-[#ffffff]/60 focus-visible:ring-primary"
+                value={headerSearchQuery}
+                onChange={(e) => setHeaderSearchQuery(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 ml-auto">
+            <Button onClick={() => navigate('/upload')} className="hidden sm:flex">
               <Icon name="Upload" size={18} className="mr-2" />
               Загрузить мод
+            </Button>
+            <Button onClick={() => navigate('/upload')} size="icon" className="sm:hidden">
+              <Icon name="Upload" size={18} />
             </Button>
             <Avatar className="cursor-pointer">
               <AvatarFallback className="bg-primary text-primary-foreground">U</AvatarFallback>
