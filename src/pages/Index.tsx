@@ -111,17 +111,17 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-8">
+        <div className="container flex h-16 items-center justify-between px-4 md:px-8 bg-[#0d151a]">
           <div className="flex items-center gap-2">
             <Icon name="Gamepad2" size={28} className="text-primary" />
-            <h1 className="text-xl font-bold">ModHub</h1>
+            <h1 className="text-xl font-bold text-[#ffffff]">ModHub</h1>
           </div>
           
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Каталог</a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Популярное</a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Категории</a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Сообщество</a>
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Каталог</a>
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Популярное</a>
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Категории</a>
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors text-[#ffffff]">Сообщество</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -143,9 +143,7 @@ export default function Index() {
         <div className="container px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <Badge variant="secondary" className="mb-4">🎮 Платформа #1 для модов</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Найди лучшие моды для Farming Simulator
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Модификации для игр. Сделай свою игру ярче.</h2>
             <p className="text-lg text-muted-foreground">
               Более 10,000 модификаций от сообщества. Скачивай, делись и обсуждай.
             </p>
