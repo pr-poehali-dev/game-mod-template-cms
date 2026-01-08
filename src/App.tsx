@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import UploadMod from "./pages/UploadMod";
 import GamePage from "./pages/GamePage";
+import ModDetail from "./pages/ModDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/upload" element={<UploadMod />} />
           <Route path="/game/:gameId" element={<GamePage />} />
+          <Route path="/mod/:modId" element={<ModDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

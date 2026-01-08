@@ -307,7 +307,7 @@ export default function Index() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {filteredMods.map((mod) => (
-            <Card key={mod.id} className="group overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer">
+            <Card key={mod.id} className="group overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer" onClick={() => navigate(`/mod/${mod.id}`)}>
               <div className="relative overflow-hidden aspect-video">
                 <img 
                   src={mod.image} 
@@ -334,7 +334,7 @@ export default function Index() {
                   <Icon name="Download" size={16} />
                   {mod.downloads.toLocaleString()}
                 </div>
-                <Button size="sm">
+                <Button size="sm" onClick={(e) => { e.stopPropagation(); navigate(`/mod/${mod.id}`); }}>
                   Скачать
                 </Button>
               </CardFooter>
